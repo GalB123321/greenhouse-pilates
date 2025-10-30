@@ -28,7 +28,7 @@ export default function HeroSmooth({
   transitionText = 'זוזו בדרך שלכם',
   ctaButtonText = 'הדרך שמתאימה לי',
   ctaButtonLink = '/questionnaire',
-  logoUrl = '/images/LOGO.png',
+  logoUrl = '/images/logo.png',
   subtitle = 'פילאטיס • יוגה • תנועה • קהילה',
   location = 'אביחיל',
   secondaryCtaText = 'רוצה לשמוע עוד',
@@ -190,11 +190,12 @@ export default function HeroSmooth({
                       ease: "easeInOut"
                     }}
                   >
+                    <div className="absolute inset-0 rounded-full bg-white/10 backdrop-blur-sm" />
                     <Image
                       src={logoUrl}
                       alt="הבית הירוק"
                       fill
-                      className="object-contain drop-shadow-2xl"
+                      className="object-contain p-4"
                       priority
                       sizes="(max-width: 768px) 160px, 208px"
                     />
@@ -321,11 +322,11 @@ export default function HeroSmooth({
         </AnimatePresence>
       </div>
 
-      {/* Scroll indicator - positioned at the bottom of the hero */}
+      {/* Scroll indicator - positioned at the very bottom of the hero */}
       <AnimatePresence>
         {animationPhase === 3 && (
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-30"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
