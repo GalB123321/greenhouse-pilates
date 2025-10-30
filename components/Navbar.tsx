@@ -123,7 +123,9 @@ export default function Navbar() {
 
             {/* Mobile Menu Button */}
             <motion.button
-              variants={ctaVariants}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`md:hidden relative w-10 h-10 flex items-center justify-center transition-colors duration-300 ${
                 isScrolled ? 'text-green-primary' : 'text-white'
