@@ -28,7 +28,7 @@ export default function HeroSmooth({
   transitionText = 'זוזו בדרך שלכם',
   ctaButtonText = 'הדרך שמתאימה לי',
   ctaButtonLink = '/questionnaire',
-  logoUrl = '/images/logo.png',
+  logoUrl = '/images/LOGO.png',
   subtitle = 'פילאטיס • יוגה • תנועה • קהילה',
   location = 'אביחיל',
   secondaryCtaText = 'רוצה לשמוע עוד',
@@ -190,12 +190,11 @@ export default function HeroSmooth({
                       ease: "easeInOut"
                     }}
                   >
-                    <div className="absolute inset-0 rounded-full bg-white/10 backdrop-blur-sm" />
                     <Image
                       src={logoUrl}
                       alt="הבית הירוק"
                       fill
-                      className="object-contain p-4"
+                      className="object-contain"
                       priority
                       sizes="(max-width: 768px) 160px, 208px"
                     />
