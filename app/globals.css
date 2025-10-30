@@ -1,26 +1,225 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #E9D692;
+  --foreground: #3A3837;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-rubik);
+  
+  /* Refined color palette - Your exact colors */
+  --color-shel-top: #E9D692;        /* Light creamy beige */
+  --color-shel-bottom: #DDB55D;     /* Golden honey tone */
+  --color-shel-text: #3A3837;       /* Soft charcoal */
+  
+  /* Sophisticated earth tones - Based on your palette */
+  --color-sand-light: #F2EBD9;      /* Lighter cream */
+  --color-sand: #E9D692;            /* Your creamy beige */
+  --color-golden: #DDB55D;          /* Your golden honey */
+  --color-golden-dark: #C99F4A;     /* Deeper golden */
+  --color-cream: #F5F0E5;           
+  --color-warm-white: #FAF7F0;      
+  
+  /* Sophisticated green accents */
+  --color-green-dark: #2F3E31;
+  --color-green-primary: #4F5E51;
+  --color-green-light: #7A8F77;
+  --color-green-pale: #E5EAE5;
+  --color-earth: #C5B5A7;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(180deg, #E9D692 0%, #DDB55D 100%);
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-rubik), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Better focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid #4A5D4F;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+button, a {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Active states for buttons */
+button:active, a:active {
+  transform: scale(0.98);
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Selection styles */
+::selection {
+  background: #8BA888;
+  color: white;
+}
+
+::-moz-selection {
+  background: #8BA888;
+  color: white;
+}
+
+/* Safe area for notched phones */
+@supports (padding: max(0px)) {
+  .safe-top {
+    padding-top: max(env(safe-area-inset-top), 1rem);
+  }
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+  }
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 468px 104px;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-golden), var(--color-golden-dark));
+  border-radius: 20px;
+  border: 2px solid var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-golden-dark);
+}
+
+/* Floating animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Utility classes for animations */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 5s ease infinite;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Glow effects */
+.glow-gold {
+  box-shadow: 0 0 30px rgba(221, 185, 98, 0.3);
+}
+
+.glow-soft {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Text gradient */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-golden), var(--color-golden-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Parallax container */
+.parallax {
+  will-change: transform;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noise'%3E%3CfeTurbulence baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' /%3E%3C/svg%3E");
+  pointer-events: none;
 }

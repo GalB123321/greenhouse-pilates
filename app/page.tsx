@@ -1,65 +1,103 @@
-import Image from "next/image";
+import HeroSmooth from "@/components/HeroSmooth";
+import HeroCTASection from "@/components/sections/HeroCTASection";
+import StorySectionEnhanced from "@/components/sections/StorySectionEnhanced";
+import PhilosophySectionRefined from "@/components/sections/PhilosophySectionRefined";
+import BenefitsSectionRefined from "@/components/sections/BenefitsSectionRefined";
+import ClassesSectionWithTabs from "@/components/sections/ClassesSectionWithTabs";
+import PhotoGallerySection from "@/components/sections/PhotoGallerySection";
+import CommunitySection from "@/components/sections/CommunitySection";
+import InstructorsSection from "@/components/sections/InstructorsSection";
+import CTASection from "@/components/sections/CTASection";
+import { getHomePageContent } from "@/lib/sanity-queries";
+import { urlForImage } from "@/sanity/lib/image";
 
-export default function Home() {
+export default async function Home() {
+  // Fetch content from Sanity
+  const content = await getHomePageContent();
+  
+  // Fallback content if Sanity fails or no content exists
+  const fallback = {
+    hero: {
+      video: undefined,
+      image: undefined,
+      inspirationalText: 'תנועו מתוך אהבה, לא מתוך פחד',
+      transitionText: 'זוזו בדרך שלכם',
+      ctaButtonText: 'גלו איזה אימון מתאים לכם',
+      ctaButtonLink: '/questionnaire'
+    },
+    contentBox: {
+      logo: undefined,
+      subtitle: 'פילאטיס • יוגה • תנועה • קהילה',
+      location: 'אביחיל',
+      secondaryCtaText: 'רוצה לשמוע עוד',
+      secondaryCtaLink: '/contact'
+    }
+  };
+
+  // Use Sanity content if available, otherwise use fallback
+  const heroData = content?.hero || fallback.hero;
+  const contentBoxData = content?.contentBox || fallback.contentBox;
+  
+  // Process image URLs from Sanity
+  const videoUrl = heroData.video?.asset?.url || '/videos/tal.MOV';
+  const imageUrl = heroData.image?.asset ? urlForImage(heroData.image)?.url() : undefined;
+  const logoUrl = contentBoxData.logo?.asset ? urlForImage(contentBoxData.logo)?.url() : '/images/LOGO.png';
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <section id="hero">
+        <HeroSmooth
+        // Media - prioritize video, then Sanity image, then local video
+        videoUrl={heroData.video?.asset?.url || (!imageUrl ? '/videos/tal.MOV' : undefined)}
+        imageUrl={imageUrl}
+        imageAlt={heroData.image?.alt}
+        
+        // Animation texts from Sanity
+        inspirationalText={heroData.inspirationalText}
+        transitionText={heroData.transitionText}
+        ctaButtonText={heroData.ctaButtonText}
+        ctaButtonLink={heroData.ctaButtonLink}
+        
+        // Content box from Sanity
+        logoUrl={logoUrl}
+        subtitle={contentBoxData.subtitle}
+        location={contentBoxData.location}
+        secondaryCtaText={contentBoxData.secondaryCtaText}
+        secondaryCtaLink={contentBoxData.secondaryCtaLink}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+      
+      <HeroCTASection />
+      
+      <section id="story">
+        <StorySectionEnhanced />
+      </section>
+      
+      <section id="classes">
+        <ClassesSectionWithTabs />
+      </section>
+      
+      <section id="philosophy">
+        <PhilosophySectionRefined />
+      </section>
+      
+      <InstructorsSection />
+      
+      <section id="benefits">
+        <BenefitsSectionRefined />
+      </section>
+      
+      <section id="gallery">
+        <PhotoGallerySection />
+      </section>
+      
+      <section id="community">
+        <CommunitySection />
+      </section>
+      
+      <section id="contact">
+        <CTASection />
+      </section>
+    </>
   );
 }
