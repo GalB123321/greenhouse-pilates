@@ -11,18 +11,18 @@
  */
 
 import { sanityFetch } from '@/sanity/client'
-import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 /**
  * TypeScript Interfaces for Sanity Documents
  */
 
 // Sanity image type with metadata
-export interface SanityImage extends SanityImageSource {
+export interface SanityImage {
   _type: 'image'
-  asset: {
-    _ref: string
-    _type: 'reference'
+  asset?: {
+    _ref?: string
+    _type?: 'reference'
+    url?: string
   }
   alt?: string
   caption?: string

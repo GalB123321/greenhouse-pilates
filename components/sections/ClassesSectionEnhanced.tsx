@@ -3,7 +3,7 @@
 import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { defaultImages } from '@/lib/images'
+import { images } from '@/lib/images'
 
 const classes = [
   {
@@ -12,7 +12,7 @@ const classes = [
     level: "כל הרמות",
     duration: "50 דקות",
     description: "אימון על מכשירי פילאטיס מקצועיים לחיזוק ועיצוב הגוף",
-    image: defaultImages.classReformer,
+    image: images.classes[0],
     color: "from-purple-500 to-pink-500",
     spots: 6,
     time: "09:00"
@@ -23,7 +23,7 @@ const classes = [
     level: "מתחילים",
     duration: "45 דקות",
     description: "תרגילי פילאטיס קלאסיים על מזרן לחיזוק שרירי הליבה",
-    image: defaultImages.matClass,
+    image: images.classes[1],
     color: "from-blue-500 to-cyan-500",
     spots: 12,
     time: "10:00"
@@ -34,7 +34,7 @@ const classes = [
     level: "מתקדמים",
     duration: "60 דקות",
     description: "זרימה דינמית המשלבת נשימה ותנועה",
-    image: defaultImages.yoga,
+    image: images.classes[2],
     color: "from-green-500 to-emerald-500",
     spots: 15,
     time: "18:00"
@@ -45,7 +45,7 @@ const classes = [
     level: "מותאם",
     duration: "45 דקות",
     description: "אימון בטוח ומותאם לנשים בהריון",
-    image: defaultImages.pregnancy,
+    image: images.classes[3],
     color: "from-pink-500 to-rose-500",
     spots: 8,
     time: "11:00"
@@ -56,7 +56,7 @@ const classes = [
     level: "אישי",
     duration: "30 דקות",
     description: "תרגילים ממוקדים לשיקום ומניעת פציעות",
-    image: defaultImages.rehab,
+    image: images.classes[4],
     color: "from-orange-500 to-red-500",
     spots: 1,
     time: "לפי תיאום"
