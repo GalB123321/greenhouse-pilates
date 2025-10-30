@@ -68,9 +68,9 @@ export default defineType({
     defineField({
       name: 'email',
       title: 'אימייל',
-      type: 'email',
+      type: 'string',
       description: 'כתובת האימייל הראשית',
-      validation: Rule => Rule.required().email()
+      validation: Rule => Rule.required()
     }),
     
     defineField({

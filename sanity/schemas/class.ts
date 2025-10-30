@@ -147,9 +147,9 @@ export default defineType({
       featured: 'featured',
       order: 'order'
     },
-    prepare(selection) {
+    prepare(selection: any) {
       const { title, subtitle, featured, order } = selection
-      const levelLabels = {
+      const levelLabels: { [key: string]: string } = {
         beginner: 'מתחילים',
         intermediate: 'בינוניים',
         advanced: 'מתקדמים',

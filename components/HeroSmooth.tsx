@@ -26,7 +26,7 @@ export default function HeroSmooth({
   imageAlt = 'Hero background',
   inspirationalText = 'תנועו מתוך אהבה, לא מתוך פחד',
   transitionText = 'זוזו בדרך שלכם',
-  ctaButtonText = 'גלו איזה אימון מתאים לכם',
+  ctaButtonText = 'הדרך שמתאימה לי',
   ctaButtonLink = '/questionnaire',
   logoUrl = '/images/LOGO.png',
   subtitle = 'פילאטיס • יוגה • תנועה • קהילה',
@@ -265,7 +265,7 @@ export default function HeroSmooth({
 
                 {/* Scroll indicator - smooth entrance */}
                 <motion.div
-                  className="absolute -bottom-20 left-1/2 transform -translate-x-1/2"
+                  className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}

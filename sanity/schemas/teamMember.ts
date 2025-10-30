@@ -92,9 +92,8 @@ export default defineType({
     defineField({
       name: 'email',
       title: 'אימייל',
-      type: 'email',
-      description: 'כתובת אימייל ליצירת קשר (אופציונלי)',
-      validation: Rule => Rule.email()
+      type: 'string',
+      description: 'כתובת אימייל ליצירת קשר (אופציונלי)'
     }),
     
     defineField({
@@ -151,9 +150,9 @@ export default defineType({
       isActive: 'isActive',
       order: 'order'
     },
-    prepare(selection) {
+    prepare(selection: any) {
       const { title, subtitle, isActive, order } = selection
-      const roleLabels = {
+      const roleLabels: { [key: string]: string } = {
         pilates: 'מדריכת פילאטיס',
         yoga: 'מדריכת יוגה',
         qigong: 'מדריכת צ׳יקונג',

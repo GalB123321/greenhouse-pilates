@@ -30,28 +30,28 @@ export default function InstructorsSection() {
       name: "רונית ליבנת",
       role: "מייסדת ומדריכה ראשית",
       bio: "20 שנה של אהבה לתנועה",
-      image: instructorImages[0]
+      image: "/images/Pics 1/A70A8470.JPG"
     },
     {
       id: 2,
       name: "דפנה לוי",
       role: "מדריכת פילאטיס",
       bio: "מתמחה בפילאטיס שיקומי",
-      image: instructorImages[1]
+      image: "/images/Pics 1/A70A8481.JPG"
     },
     {
       id: 3,
-      name: "עידן ריישר שקד",
+      name: "מיכל ריישר שקד",
       role: "מדריכת פילאטיס",
       bio: "אנרגיה, דיוק וחיוך",
-      image: instructorImages[2]
+      image: "/images/Pics 1/A70A8492.JPG"
     },
     {
       id: 4,
       name: "כרמית שחר",
       role: "מדריכת פילאטיס",
       bio: "מתמחה בעבודה עם ספורטאים",
-      image: instructorImages[3]
+      image: "/images/Pics 1/A70A8501.JPG"
     }
   ]
 
