@@ -12,7 +12,7 @@ const classes = [
     level: "כל הרמות",
     duration: "50 דקות",
     description: "אימון על מכשירי פילאטיס מקצועיים לחיזוק ועיצוב הגוף",
-    image: defaultImages.reformer,
+    image: defaultImages.classReformer,
     color: "from-purple-500 to-pink-500",
     spots: 6,
     time: "09:00"
