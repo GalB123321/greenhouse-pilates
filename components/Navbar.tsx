@@ -41,60 +41,13 @@ export default function Navbar() {
     }
   }, [pathname, isMobileMenuOpen])
 
-  // Animation variants
-  const navVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        delay: 0.3,
-        ease: "easeOut"
-      }
-    }
-  }
-
-  const logoVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delay: 0.4,
-        duration: 0.6
-      }
-    }
-  }
-
-  const linkVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.5 + (i * 0.1),
-        duration: 0.6
-      }
-    })
-  }
-
-  const ctaVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delay: 0.9,
-        duration: 0.6
-      }
-    }
-  }
 
   return (
     <>
       <motion.nav
-        variants={navVariants}
-        initial="hidden"
-        animate="visible"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/20 shadow-sm'
@@ -105,7 +58,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-20 md:h-24">
             
             {/* Logo - Right side for RTL */}
-            <motion.div variants={logoVariants}>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.6 }}>
               <Link
                 href="/"
                 className="relative block transition-all duration-300 hover:scale-105"
@@ -127,10 +80,9 @@ export default function Navbar() {
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.href}
-                  custom={index}
-                  variants={linkVariants}
-                  initial="hidden"
-                  animate="visible"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 + (index * 0.1), duration: 0.6 }}
                 >
                   <Link
                     href={link.href}
@@ -152,7 +104,9 @@ export default function Navbar() {
 
             {/* Desktop CTA Button - Left side for RTL */}
             <motion.div 
-              variants={ctaVariants}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
               className="hidden md:block"
             >
               <Link

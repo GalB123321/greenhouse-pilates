@@ -56,7 +56,7 @@ export default function InstructorsSection() {
   ]
 
   return (
-    <section className="py-32 md:py-40 bg-gradient-to-b from-[#DDB55D] to-[#C99F4A]">
+    <section className="py-32 md:py-40 bg-gradient-to-b from-[#FAF7F0] via-[#F5F0E5] to-[#E9D692]/30">
       <div className="container mx-auto px-4">
         
         {/* Header */}
