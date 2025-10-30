@@ -80,17 +80,6 @@ export default function ClassesSectionWithTabs() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.div
-            className="inline-flex items-center gap-8 mb-8"
-            initial={{ width: 0, opacity: 0 }}
-            animate={isInView ? { width: "auto", opacity: 1 } : {}}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-          >
-            <div className="h-[1px] w-20 bg-gradient-to-r from-transparent to-golden-dark/30" />
-            <span className="text-golden-dark text-xs tracking-[0.3em] uppercase font-light">מערכת השיעורים</span>
-            <div className="h-[1px] w-20 bg-gradient-to-l from-transparent to-golden-dark/30" />
-          </motion.div>
-          
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-extralight text-shel-text mb-6 leading-tight"
             initial={{ opacity: 0, y: 20 }}

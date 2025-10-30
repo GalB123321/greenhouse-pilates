@@ -119,7 +119,7 @@ export default function StorySectionEnhanced() {
               <p className="text-lg italic text-gray-600 leading-relaxed">
                 "התנועה היא לא רק אימון - היא דרך חיים, פילוסופיה של חיבור בין הגוף, הנפש והרוח."
               </p>
-              <p className="text-sm text-golden-dark mt-4 font-light">
+              <p className="text-sm text-white mt-4 font-light">
                 רונית ליבנת, מייסדת הבית הירוק
               </p>
             </motion.div>

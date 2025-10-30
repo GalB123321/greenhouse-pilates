@@ -263,36 +263,6 @@ export default function HeroSmooth({
                   </Link>
                 </motion.div>
 
-                {/* Scroll indicator - smooth entrance */}
-                <motion.div
-                  className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
-                >
-                  <motion.div
-                    className="flex flex-col items-center gap-2"
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-                      <motion.div
-                        className="w-1 h-3 bg-white/50 rounded-full mt-2"
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ 
-                          duration: 1.5, 
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                      />
-                    </div>
-                    <span className="text-white/50 text-xs font-light">גללו למטה</span>
-                  </motion.div>
-                </motion.div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -350,6 +320,41 @@ export default function HeroSmooth({
           )}
         </AnimatePresence>
       </div>
+
+      {/* Scroll indicator - positioned at the bottom of the hero */}
+      <AnimatePresence>
+        {animationPhase === 3 && (
+          <motion.div
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.div
+              className="flex flex-col items-center gap-2"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+                <motion.div
+                  className="w-1 h-3 bg-white/50 rounded-full mt-2"
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              </div>
+              <span className="text-white/50 text-xs font-light">גללו למטה</span>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
