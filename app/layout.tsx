@@ -14,6 +14,11 @@ const rubik = Rubik({
 export const metadata: Metadata = {
   title: "Green In Pilates",
   description: "מרכז פילאטיס מקצועי",
+  icons: {
+    icon: '/images/LOGO.png',
+    shortcut: '/images/LOGO.png',
+    apple: '/images/LOGO.png',
+  },
 };
 
 export default function RootLayout({
