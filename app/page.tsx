@@ -4,7 +4,6 @@ import StorySectionEnhanced from "@/components/sections/StorySectionEnhanced";
 import PhilosophySectionRefined from "@/components/sections/PhilosophySectionRefined";
 import BenefitsSectionRefined from "@/components/sections/BenefitsSectionRefined";
 import ClassesSectionWithTabs from "@/components/sections/ClassesSectionWithTabs";
-import PhotoGallerySection from "@/components/sections/PhotoGallerySection";
 import CommunitySection from "@/components/sections/CommunitySection";
 import InstructorsSection from "@/components/sections/InstructorsSection";
 import CTASection from "@/components/sections/CTASection";
@@ -85,10 +84,6 @@ export default async function Home() {
       
       <section id="benefits">
         <BenefitsSectionRefined />
-      </section>
-      
-      <section id="gallery">
-        <PhotoGallerySection />
       </section>
       
       <section id="community">
