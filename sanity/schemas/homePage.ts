@@ -5,6 +5,7 @@ export default defineType({
   title: 'דף הבית',
   type: 'document',
   
+
   fields: [
     // Hero Section
     defineField({
